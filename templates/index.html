@@ -278,18 +278,20 @@
                 Get In Touch
               </h2>
             </div>
-            <form action="">
+            <form action="{% url 'home' %}" method="POST">
+              {% csrf_token %}
+              {% comment %} {{form.as_p}} {% endcomment %}
               <div>
-                <input type="text" placeholder="Name" />
+                {{form.name}}
               </div>
               <div>
-                <input type="text" placeholder="Pone Number" />
+                {{form.phone_number}}
               </div>
               <div>
-                <input type="email" placeholder="Email" />
+                {{form.email}}
               </div>
               <div>
-                <input type="text" class="message-box" placeholder="Message" />
+                {{form.message}}
               </div>
               <div class="d-flex  mt-4 ">
                 <button>
