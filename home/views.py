@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import ContactForm
+from .models import Teacher
 
 def home(request):
 
@@ -22,4 +23,8 @@ def about(request):
     return render(request, 'about.html')
 
 def teacher(request):
-    return render(request, 'teacher.html')
+    teacher = Teacher.objects.all()
+    context = {
+        'teachers' : teacher
+    }
+    return render(request, 'teacher.html', context)
